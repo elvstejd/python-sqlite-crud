@@ -7,7 +7,7 @@ def connectionDB(func):
         global myConnection
         global myCursor
 
-        myConnection = sqlite3.connect("crud.db")
+        myConnection = sqlite3.connect("elements.db")
         myCursor = myConnection.cursor()
         result = func(*args, **kwargs)
         myConnection.commit()

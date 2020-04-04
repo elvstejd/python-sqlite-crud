@@ -31,6 +31,7 @@ def ask():
         elif ans == "u":
             pass
         elif ans == "e":
+            print()
             print("Goodbye.")
             exit()
     else:
