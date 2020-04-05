@@ -1,20 +1,28 @@
 import sqlite3
 import db
 
-global game_on
-game_on = True
+items = db.read()
 
 def create():
     item = input("Enter the name of the item you want to insert: \n")
     db.insert(item)
 
+def update():
+    n = input("Enter the number of the Item you want to update: ")
+    new = input("Enter the new name: ")
+
+    item_id = items[int(n)-1][0]
+
+    db.update(item_id, new)
+
 
 def display():
     print()
+    items = db.read()
     print("This is your current list: ")
     n = 1
-    for i in db.read():
-        print(f"{n}. {i[0]}")
+    for i in items:
+        print(f"{n}. {i[1]}")
         n+=1
     print()
 
@@ -29,7 +37,7 @@ def ask():
         elif ans == "r":
             pass
         elif ans == "u":
-            pass
+            update()
         elif ans == "e":
             print()
             print("Goodbye.")
@@ -45,7 +53,7 @@ def ask():
 if __name__ == "__main__":
     db.make_table()
 
-    while game_on:
+    while True:
         display()
         ask()
     

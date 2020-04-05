@@ -21,17 +21,28 @@ def make_table():
     try:
         myCursor.execute('''
         CREATE TABLE items (
+            element_id INTEGER PRIMARY KEY AUTOINCREMENT,
             element VARCHAR(17)
         )
         ''')
-    except sqlite3.OperationalError:
-        pass
+    except Exception as e:
+        print("*********")
+        print(e)
+        print("*********")
 
 
 
 @connectionDB
 def insert(element):
-    myCursor.execute('INSERT INTO items VALUES(?)', [element])
+    myCursor.execute('INSERT INTO items(element) VALUES(?)', [element])
+
+
+@connectionDB
+def update(x, y):
+    id = x
+    data = [y]
+    myCursor.execute(f'UPDATE items SET element = ? WHERE element_id = {id}', data)
+    print("this ran")
 
 
 @connectionDB
