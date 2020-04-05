@@ -1,2 +1,7 @@
 # python-sqlite-crud
-CRUD using Python and SQLite3
+Very simple Python CRUD using SQLite
+
+---
+## TO-DO
+- Add Update function
+- Add Delete function
