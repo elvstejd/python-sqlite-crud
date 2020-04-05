@@ -8,18 +8,20 @@ def create():
     db.insert(item)
 
 def update():
-    n = input("Enter the number of the Item you want to update: ")
-    new = input("Enter the new name: ")
-
-    item_id = items[int(n)-1][0]
-
-    db.update(item_id, new)
+    try:
+        n = input("Enter the number of the item you want to update: ")
+        item_id = items[int(n)-1][0]
+        new = input("Enter the new name: ")
+        db.update(item_id, new)
+    except IndexError:
+        print()
+        print("Sorry, that number is not on the list, try again")
 
 
 def display():
     print()
-    items = db.read()
     print("This is your current list: ")
+    print()
     n = 1
     for i in items:
         print(f"{n}. {i[1]}")
@@ -28,7 +30,7 @@ def display():
 
 
 def ask():
-    ans = input("Add, Remove, Update or Exit? \n")
+    ans = input("Add, update, remove or exit? \n")
     ans = ans[0].lower()
 
     if ans in "aeur":
@@ -54,6 +56,7 @@ if __name__ == "__main__":
     db.make_table()
 
     while True:
+        items = db.read()
         display()
         ask()
     

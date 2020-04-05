@@ -25,10 +25,8 @@ def make_table():
             element VARCHAR(17)
         )
         ''')
-    except Exception as e:
-        print("*********")
-        print(e)
-        print("*********")
+    except:
+        pass
 
 
 
@@ -42,7 +40,7 @@ def update(x, y):
     id = x
     data = [y]
     myCursor.execute(f'UPDATE items SET element = ? WHERE element_id = {id}', data)
-    print("this ran")
+    
 
 
 @connectionDB
