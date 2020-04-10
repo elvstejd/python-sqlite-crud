@@ -1,6 +1,7 @@
 import sqlite3
 import db
 
+
 items = db.read()
 
 def create():
@@ -16,6 +17,16 @@ def update():
     except IndexError:
         print()
         print("Sorry, that number is not on the list, try again")
+
+def remove():
+    try:
+        n = input("Enter the number of the item you want to remove: ")
+        item_id = items[int(n)-1][0]
+        db.delete(item_id)
+    except IndexError:
+        print()
+        print("Sorry, that number is not on the list, try again")
+
 
 
 def display():
@@ -37,7 +48,7 @@ def ask():
         if ans == "a":
             create()
         elif ans == "r":
-            pass
+            remove()
         elif ans == "u":
             update()
         elif ans == "e":

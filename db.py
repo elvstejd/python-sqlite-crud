@@ -34,6 +34,11 @@ def make_table():
 def insert(element):
     myCursor.execute('INSERT INTO items(element) VALUES(?)', [element])
 
+@connectionDB
+def delete(x):
+    data = [x]
+    myCursor.execute(f'DELETE FROM items WHERE element_id = ?', data)
+
 
 @connectionDB
 def update(x, y):
@@ -41,7 +46,6 @@ def update(x, y):
     data = [y]
     myCursor.execute(f'UPDATE items SET element = ? WHERE element_id = {id}', data)
     
-
 
 @connectionDB
 def read():
