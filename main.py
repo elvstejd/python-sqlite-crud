@@ -9,6 +9,7 @@ def create():
     item = input("Enter the name of the item you want to insert: \n")
     db.insert(item)
 
+
 def update():
     try:
         n = int(input("Enter the number of the item you want to update: "))
@@ -20,6 +21,7 @@ def update():
         print()
         print("Sorry, that number is not on the list, try again.")
 
+
 def remove():
     try:
         n = int(input("Enter the number of the item you want to remove: "))
@@ -29,7 +31,6 @@ def remove():
     except IndexError:
         print()
         print("Sorry, that number is not on the list, try again.")
-
 
 
 def display():
@@ -62,9 +63,7 @@ def ask():
         else:
             print("I'm sorry, what? \n")
             ask()
-
     else:
-
         ans = input("Add, update, remove or exit? \n")
         ans = ans[0].lower()
         
@@ -84,11 +83,8 @@ def ask():
         
 
 
-
-
 if __name__ == "__main__":
     db.make_table()
-
 
     while True:
         items = db.read()
