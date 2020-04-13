@@ -6,4 +6,6 @@ Here's what it looks like:
 
 ![screenshot](screenshots/interface.png)
 
-It ain't much, but it's honest work. 
+When the database is empty:
+
+![screenshot](screenshots/empty_database.png)
